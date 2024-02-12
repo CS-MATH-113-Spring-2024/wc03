@@ -11,6 +11,9 @@
 \runningheadrule
 \runningfootrule
 
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
 \printanswers
 
 \newcolumntype{C}{>{$}c<{$}} % math-mode version of "c" column type
@@ -73,13 +76,13 @@
   \begin{solution}
     % Enter your solution here.
     \begin{tabular}{C||C}
-      & \text{Primitive: } \\
+      & \text{Primitive: } \implies \\
       \hline\hline
-      \lnot p &  \\
-      p \lor q & \\
-      p \land q & \\
+      \lnot p & p\implies F \\
+      p \lor q & \lnot p \implies q\\
+      p \land q & \lnot(\lnot p\lor\lnot q)\\
       p \implies q \\
-      p \iff q & \\
+      p \iff q & p\implies q\land q\implies p\\
     \end{tabular}
   \end{solution}
   \newpage
@@ -88,15 +91,17 @@
   The table below already contains the pair from Table \ref{table}. Add another pair and complete the rightmost column. Add more columns for any further pairs.
   \begin{solution} \null\newline
     % Enter your solution here.
-    \begin{tabular}{C||C|C}
-      & \text{Primitives: }\lnot, \land & \text{Primitives: }\\
-      \hline\hline
-      \lnot p &  & \\
-      p \lor q & \lnot(\lnot p \land \lnot q) & \\
-      p \land q & & \\
-      p \implies q & \lnot p \lor q & \\
-      p \iff q & (p \implies q) \land (q \implies p) & \\
-    \end{tabular}
+    \[
+      \begin{array}{c||c|c|c|c}
+  & \neg, \land & \neg, \lor & \iff, \land  & \iff, \lor\\
+  \hline\hline
+  \neg p  & & & p \iff F & p \iff F \\
+  p \lor q  & \neg(\neg p \land \neg q) & & \neg(\neg p \land \neg q) & \\
+  p \land q  & & \neg(\neg p \lor \neg q) & & \neg(\neg p \lor \neg q) \\
+  p \implies q & \multicolumn{4}{c}{\neg p \lor q} \\
+  p \iff q & \multicolumn{4}{c}{(p \implies q) \land (q \implies p)} \\
+      \end{array}
+      \]
   \end{solution}
 \end{parts}
 \end{questions}
